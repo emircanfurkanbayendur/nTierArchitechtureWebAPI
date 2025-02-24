@@ -31,6 +31,7 @@ namespace Repositories.EFCore
         // Bu methodu ezerek kendi yazdigimiz BookConfig class'ini uyguluyoruz.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // migration ile update-database yapildiginda config dosyasinda yazdigimiz degisiklikler dbye yansiyacak.
             modelBuilder.ApplyConfiguration(new BookConfig());
 
         }
