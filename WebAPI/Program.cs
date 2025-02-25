@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 // service extension classini kullanarak servisleri configure ediyoruz.
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
+builder.Services.ConfigureServiceManager();
 
 var app = builder.Build();
 

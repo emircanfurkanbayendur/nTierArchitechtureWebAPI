@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 using Repositories.EFCore;
+using Services;
+using Services.Contracts;
 
 namespace WebAPI.Extensions
 {
@@ -22,6 +24,12 @@ namespace WebAPI.Extensions
         {
             // RepositoryManager sınıfını ekliyoruz.
             services.AddScoped<IRepositoryManager, RepositoryManager>();
+        }
+
+        public static void ConfigureServiceManager(this IServiceCollection services)
+        {
+            // ServiceManager sınıfını ekliyoruz.
+            services.AddScoped<IServiceManager, ServiceManager>();
         }
 
     }
