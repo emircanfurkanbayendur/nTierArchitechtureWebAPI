@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Repositories.Contracts;
 using Repositories.EFCore;
 
 namespace WebAPI.Extensions
@@ -14,7 +15,13 @@ namespace WebAPI.Extensions
             // Bu connection string'i kullanarak RepositoryContext'i configure ediyoruz.
             services.AddDbContext<RepositoryContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+        }
 
+        // RepositoryManager sınıfını ekliyoruz.
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
+            // RepositoryManager sınıfını ekliyoruz.
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
         }
 
     }

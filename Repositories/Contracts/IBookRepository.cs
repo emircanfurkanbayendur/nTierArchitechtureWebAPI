@@ -13,9 +13,7 @@ namespace Repositories.Contracts
         // sadece gerekli verileri çeker ve SQL sorgusunu veritabanında oluşturur.
         IQueryable<Book> GetAllBooks(bool trackChanges);
 
-        // `IQueryable<Book>`: Veritabanında sorguyu geç çalıştırarak optimize eder,
-        // yalnızca gerekli veriyi çeker ve filtreleme/sıralama veritabanında yapılır.
-        IQueryable<Book> GetOneBook(int id, bool trackChanges);
+        Book GetOneBookByID(int id, bool trackChanges);
         void CreateOneBook(Book book);
         void UpdateOneBook(Book book);
         void DeleteOneBook(Book book);

@@ -28,7 +28,7 @@ namespace Repositories.EFCore
         public IQueryable<Book> GetAllBooks(bool trackChanges) => FindAll(trackChanges).OrderBy(b => b.ID);
 
         // burada kullandigimiz FindByCondition metodu RepositoryBase sınıfından gelmektedir.
-        public IQueryable<Book> GetOneBook(int id, bool trackChanges) => FindByCondition(b => b.ID == id, trackChanges);
+        public Book GetOneBookByID(int id, bool trackChanges) => FindByCondition(b => b.ID == id, trackChanges).SingleOrDefault();
 
 
         // burada kullandigimiz update metodu RepositoryBase sınıfından gelmektedir.
